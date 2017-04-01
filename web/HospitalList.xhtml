@@ -7,21 +7,39 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <link rel="stylesheet" type="text/css" href="Style.css"/>
+<link rel="stylesheet" type="text/css" href="StyleHospitalList.css"/>
 
 <h:body>
     <f:view>
         <h:form>
-        <div class="box">
-        <h:graphicImage url="images/Banner.png" width="1200px" height="122px"></h:graphicImage>
-        <h2 class="titulo">Mantenimiento de Hospitales</h2>
-        <h:commandButton value = "Agregar" action = "HospitalAdd" styleClass="buttonGrilla">
-        </h:commandButton>
+            <div class="some-awesome-laptop">
+                <div class="some-awesome-wallpaper-wrapper">
+                    <h:graphicImage url="images/Banner.png" class="some-awesome-wallpaper" ></h:graphicImage>
+                </div>
+            </div>
 
-        <h:dataTable styleClass="people"
+        <div class="box">
+            <h:outputLabel value="Usuario: " />
+            <h:outputText value="#{sessionScope['username']}" />
+            <h:commandButton value="Hospitales" action="HospitalList" styleClass="buttonGrilla" style="width: 120px"></h:commandButton>
+            <h:commandButton value="Paises" action="CountryList" styleClass="buttonGrilla" style="width: 120px"></h:commandButton>
+            <h:commandButton value="Departamentos" action="DepartmentList" styleClass="buttonGrilla" style="width: 120px"></h:commandButton>
+            <h:commandButton value="Tipo de Sangre" action="BloodTypeList" styleClass="buttonGrilla" style="width: 120px"></h:commandButton>
+            <h:commandButton value="Especialidad Médica" action="MedicalEspecialityList" styleClass="buttonGrilla" style="width: 120px"></h:commandButton>
+            <h:commandButton value="Tipo Tratamiento" action="TreatmentTypeList" styleClass="buttonGrilla" style="width: 120px"></h:commandButton>
+            <h:commandButton value="Turno" action="TurnList" styleClass="buttonGrilla" style="width: 120px"></h:commandButton>
+            <h:commandButton value="Cerrar Sesión" action="Login" styleClass="buttonGrilla" style="width: 120px"></h:commandButton>
+
+            <h2 class="titulo">Mantenimiento de Hospitales</h2>
+        <!--h:commandButton value = "Agregar" action = "HospitalAdd" styleClass="buttonGrilla">
+        </h:commandButton-->
+        </div>
+        <div>
+        <h:dataTable
                     cellspacing="0"
                     cellpadding="0"
                     border="0"
-                     value="#{hospitalBean.hospitals}" var="hospital">
+                     value="#{hospitalBean.hospitals}" var="hospital" style="width: 100%">
             <h:column>
                 <f:facet name="header" >Id</f:facet>
                 #{hospital.id}
